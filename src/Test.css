@@ -1,0 +1,34 @@
+.hamburger {
+    display: none;
+}
+
+.test-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+}
+
+@media (max-width: 768px) {
+    .test-section {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+        .test-section.hidden {
+            display: block;
+            background-color: rgb(42, 73, 227);
+
+                    position: absolute;
+                    top: 10;
+                    right: 0;
+                    width: 50%;
+                    height: 90%;
+                    z-index: 1000;
+                }
+
+
+}
+

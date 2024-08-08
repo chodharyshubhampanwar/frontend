@@ -1,0 +1,76 @@
+[
+  {
+    "question_no": 1,
+    "section": "verbal",
+    "question_text": "Identify the product which represents the solid state in the above reaction.",
+    "options": [
+      "Barium chloride",
+      "Barium sulphate",
+      "Sodium chloride",
+      "Sodium sulphate"
+    ],
+    "marks": 1,
+    "answer": "Sodium sulphate"
+  },
+  {
+    "question_no": 2,
+    "section": "verbal",
+    "question_text": "The colour of the solution observed after 30 minutes of placing zinc metal to copper sulphate solution is",
+    "options": ["Blue", "Colourless", "Dirty green", "Reddish Brown"],
+    "marks": 1,
+    "answer": "Dirty green"
+  },
+  {
+    "question_no": 3,
+    "section": "verbal",
+    "question_text": "Mild non-corrosive basic salt is",
+    "options": ["Ca (OH)2", "NaCl", "NaOH", "NaHCO3"],
+    "marks": 1,
+    "answer": "NaHCO3"
+  },
+  {
+    "question_no": 4,
+    "section": "verbal",
+    "question_text": "On adding dilute sulphuric acid to a test tube containing a metal ‘X’, a colourless gas is produced when a burning match stick is brought near it. Which of the following correctly represents metal ‘X’?",
+    "options": ["Sodium", "Sulphur", "Copper", "Silver"],
+    "marks": 1,
+    "answer": "Sodium"
+  },
+  {
+    "question_no": 5,
+    "section": "quant",
+    "question_text": "An element with atomic number_____ will form a basic oxide.",
+    "options": ["7 (2,5)", "17 (2,8,7)", "14 (2,8,4)", "11 (2,8,1)"],
+    "marks": 1,
+    "answer": "11 (2,8,1)"
+  },
+  {
+    "question_no": 6,
+    "section": "quant",
+    "question_text": "Generally food is broken and absorbed within the body of organisms. In which of the following organisms is it done outside the body?",
+    "options": ["Amoeba", "Mushroom", "Paramoecium", "Lice"],
+    "marks": 1,
+    "answer": "Mushroom"
+  },
+  {
+    "question_no": 7,
+    "section": "quant",
+    "question_text": "Receptors are usually located in sense organs. Gustatory receptors are present in",
+    "options": ["tongue", "nose", "eye", "ear"],
+    "marks": 1,
+    "answer": "tongue"
+  },
+  {
+    "question_no": 8,
+    "section": "quant",
+    "question_text": "A farmer wants to grow banana plants genetically similar enough to the plants already available in his field. Which one of the following methods would you suggest for this purpose?",
+    "options": [
+      "Regeneration",
+      "Budding",
+      "Vegetative propagation",
+      "Sexual reproduction"
+    ],
+    "marks": 1,
+    "answer": "Vegetative propagation"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "header": {
+    "title": "Education for everyone",
+    "description": "All the tools & resources you need to unlock your potential & grow - learn, practice, improve.",
+    "button": "Get Started For Free",
+    "image": "https://leikhub-assets.s3.ap-south-1.amazonaws.com/build-product-bw.png"
+  },
+  "subHeader": {
+    "title": "fun. convenient. effective."
+  },
+  "features": [
+    {
+      "title": "Learn",
+      "description": "AI and adaptive models provide tailored learning experiences, ensuring a personalized and effective learning goals.",
+      "image": "https://d3ndsbvbnbtbm9.cloudfront.net/learnhero.svg"
+    },
+    {
+      "title": "Practice",
+      "description": "Engage with our extensive library of quizzes, tests, and exams to reinforce your learning and master the topics at hand.",
+      "image": "https://d3ndsbvbnbtbm9.cloudfront.net/learnhero.svg"
+    },
+    {
+      "title": "Improve",
+      "description": "Gain insights and detailed analysis of your performance to understand your strengths and areas of improvements.",
+      "image": "https://d3ndsbvbnbtbm9.cloudfront.net/learnhero.svg"
+    }
+  ],
+  "footer": "© Leikhub 2024",
+  "heroImage": "https://d3ndsbvbnbtbm9.cloudfront.net/landing-graphic-hero.svg"
+}

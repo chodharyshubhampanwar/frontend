@@ -1,0 +1,62 @@
+ /* @font-face {
+    font-family: "Geist";
+    src: local("Geist-Black"),
+        url("./fonts/Geist-Black.woff") format("truetype");
+}  */
+
+
+/* Geist Thin */
+@font-face {
+    font-family: 'Geist';
+    src: url('../fonts/Geist-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* Geist Regular */
+@font-face {
+    font-family: 'GeistRegular';
+    src: url('../fonts/Geist-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Geist Bold */
+@font-face {
+    font-family: 'GeistMedium';
+    src: url('../fonts/Geist-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Geist Medium */
+@font-face {
+    font-family: 'GeistSemiBold';
+    src: url('../fonts/Geist-SemiBold.woff') format('woff');
+     font-weight: 600;
+    font-style: normal;
+}
+
+/* Geist Bold */
+@font-face {
+    font-family: 'GeistBold';
+    src: url('../fonts/Geist-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Geist ExtraBold */
+@font-face {
+    font-family: 'GeistBlack';
+    src: url('../fonts/Geist-Black.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Geist UltraBlack */
+@font-face {
+    font-family: 'GeistUltraBlack';
+    src: url('../fonts/Geist-UltraBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}

@@ -1,0 +1,20 @@
+{
+  "learning": {
+    "heading": "Learning Resources",
+    "link": "/learn",
+    "description": "Discover a diverse range of educational content tailored for various levels of learning.",
+    "iconImage": "https://d3ndsbvbnbtbm9.cloudfront.net/learning-icon-landing.svg"
+  },
+  "assessments": {
+    "heading": "Assessments",
+    "link": "/assessments",
+    "description": "Evaluate your progress and reinforce your understanding through our comprehensive assessment resources.",
+    "iconImage": "https://d3ndsbvbnbtbm9.cloudfront.net/assessment-icon-landing.svg"
+  },
+  "tools": {
+    "heading": "Learning Tools",
+    "link": "/tools",
+    "description": "Enhance your educational experience with our practical and intuitive learning tools.",
+    "iconImage": "https://d3ndsbvbnbtbm9.cloudfront.net/tools-icon-landing.svg"
+  }
+}

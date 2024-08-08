@@ -1,0 +1,101 @@
+{
+  "path": {
+    "question": "Please choose your path",
+    "options": ["K-12", "Skills", "Credentials"]
+  },
+  "K-12": {
+    "question": "Please choose your board",
+    "id": "k-12",
+    "options": {
+      "CBSE": {
+        "I": ["GK"],
+        "II": ["ii"]
+      },
+      "NIOS": {
+        "I": ["GK"],
+        "II": ["ii"]
+      }
+    }
+  },
+  "Skills": {
+    "question": "Please choose your skill",
+    "id": "skills",
+    "options": {
+      "Technical": {
+        "Computer Science": [],
+        "Web Development": []
+      },
+      "Data": {
+        "Data Science": [],
+        "Data Analytics": ["Data Mining"],
+        "Data Engineering": ["Data Mining"]
+      },
+      "AI": {
+        "Machine Learning": [
+          "Supervised Learning",
+          "Unsupervised Learning",
+          "Inductive Learning"
+        ],
+        "Planning": [
+          "Automated Planning",
+          "Hierarchical Planning",
+          "Temporal Planning"
+        ],
+        "Computer Vision": ["Image Processing"],
+
+        "Natural Language Processing": ["Speech Recognition"],
+        "Robotics": ["Robot Control", "Robot Learning", "Robot Planning"],
+        "Expert Systems": [
+          "Knowledge Representation",
+
+          "User Interface",
+          "Explanation Facility",
+          "Knowledge Engineering"
+        ],
+        "Fuzzy Logic": [
+          "Fuzzy Sets",
+          "Fuzzy Relations",
+          "Fuzzy Control",
+          "Fuzzy Expert Systems"
+        ],
+        "Neural Networks": ["Artificial Neural Networks"]
+      }
+    }
+  },
+  "Credentials": {
+    "question": "Please choose your credential",
+    "id": "credentials",
+    "options": {
+      "Bachelors": {
+        "Social Sciences & Management": ["Economics"],
+        "Science & Engineering": [
+          "Physics",
+          "Chemistry",
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Chemical Engineering"
+        ]
+      },
+      "Masters": {
+        "Social Sciences & Management": ["Economics", "Political Science"],
+        "Science & Engineering": ["Physics", "Chemical Engineering"]
+      },
+      "Phd": {
+        "Social Sciences & Management": [
+          "Economics",
+          "Political Science",
+
+          "Commerce",
+          "Accounting and Finance"
+        ],
+        "Science & Engineering": [
+          "Physics",
+          "Chemistry",
+
+          "Electrical Engineering",
+          "Chemical Engineering"
+        ]
+      }
+    }
+  }
+}
