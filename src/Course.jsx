@@ -58,7 +58,7 @@ const Course = () => {
           grade: gradeName,
         };
         const { data } = await axios.get(
-          "https://vgbxpn1xza.execute-api.us-east-1.amazonaws.com/dev/api/courses",
+          "https://api.leikhub.com/api/courses",
           {
             params,
           }
