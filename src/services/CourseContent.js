@@ -41,7 +41,7 @@ const resources = [
     image: "https://d3ndsbvbnbtbm9.cloudfront.net/flashcard-icon.svg",
   },
   {
-    title: "Document",
+    title: "Question",
     link: "/learn/ug",
     image: "https://d3ndsbvbnbtbm9.cloudfront.net/9.svg",
   },

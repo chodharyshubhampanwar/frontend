@@ -139,7 +139,7 @@ function Test({ test }) {
 
     try {
       const response = await postData(
-        "https://vgbxpn1xza.execute-api.us-east-1.amazonaws.com/dev/api/submitTest",
+        "https://api.leikhub.com/api/submitTest",
         data
       );
       console.log("Test submitted successfully:", response.data);

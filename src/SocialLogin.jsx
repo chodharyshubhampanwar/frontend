@@ -15,19 +15,19 @@ const SocialLogin = () => {
     try {
       setLoading(true);
       const userData = await login();
-      const response = await axios.post("http://localhost:5000/api/register", {
+      const response = await axios.post("http://localhost:8080/api/register", {
         email: userData.email,
         token: userData.accessToken,
         firebaseId: userData.uid,
       });
 
       if (
-        response.data.message === "User already exists" ||
+        response.data.userExists ||
         response.data.message === "User registered successfully"
       ) {
         navigate("/dashboard");
       } else {
-        console.log(response.data.message);
+        setError(response.data.message);
       }
     } catch (error) {
       setError("An error occurred. Please try again later.");
@@ -76,13 +76,6 @@ const spinAnimation = keyframes`
   100% {
     transform: rotate(360deg);
   }
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const ErrorText = styled.p`

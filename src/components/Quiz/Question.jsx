@@ -7,6 +7,7 @@ import {
   SubmitButton,
 } from "../../styles/Question.js";
 import { FaSpinner } from "react-icons/fa";
+import MathJaxRenderer from "../MathEquation.jsx";
 
 const Question = ({ question, onAnswer, submitting }) => {
   const [answer, setAnswer] = useState("");
@@ -26,7 +27,14 @@ const Question = ({ question, onAnswer, submitting }) => {
 
   return (
     <QuestionForm onSubmit={handleSubmit}>
-      <QuestionText>{question.text}</QuestionText>
+      <QuestionText>
+        {question.type === "math" ? (
+          <MathJaxRenderer equation={question.text} />
+        ) : (
+          question.text
+        )}
+      </QuestionText>
+
       {question.type === "multiple_choice" &&
         question.options.map((option, index) => (
           <OptionContainer key={index}>
@@ -43,6 +51,7 @@ const Question = ({ question, onAnswer, submitting }) => {
       {question.type === "fill_in_the_blank" && (
         <OptionInput type="text" onChange={handleChange} />
       )}
+      {question.type === "math" && <MathJaxRenderer equation={question.text} />}
       {question.type === "true_false" && (
         <div>
           <OptionContainer>

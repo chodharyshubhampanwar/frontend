@@ -17,7 +17,7 @@ import Grade from "./Grade.jsx";
 import Course from "./Course.jsx";
 import Lesson from "./Lesson.jsx";
 import Layout from "./Layout.js";
-import Flashcards from "./Flashcards.jsx";
+import Flashcard from "./Flashcard.jsx";
 
 const Main = () => {
   return (
@@ -26,8 +26,6 @@ const Main = () => {
       <Route path="/exam/:id/analysis" element={<ExamAnalysis />} />
       <Route path="/test/:id" element={<TestHome />} />
       <Route path="/testanalysis/:id" element={<TestAnalysis />} />
-      <Route path="/exam/:id" element={<ExamHome />} />
-      <Route path="/exam/:id/analysis" element={<ExamAnalysis />} />
       <Route path="/quiz/:id" element={<QuizHome />} />
       <Route path="/quiz/:id/analysis" element={<QuizAnalysis />} />
       <Route element={<Layout />}>
@@ -42,7 +40,7 @@ const Main = () => {
         <Route path="/quizzes" element={<Quizzes />} />
         <Route path="/tests" element={<Tests />} />
         <Route path="/quizzes" element={<Quizzes />} />
-        <Route path="/flashcards" element={<Flashcards />} />
+        <Route path="/flashcard" element={<Flashcard />} />
       </Route>
     </Routes>
   );

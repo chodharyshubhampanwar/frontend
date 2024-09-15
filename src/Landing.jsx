@@ -33,6 +33,8 @@ const Landing = () => {
 
       <SubjectTabs />
 
+      {/* <LandingPage /> */}
+
       <CourseDetails
         heading="Learn"
         viewAllLink="/learn"

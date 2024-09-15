@@ -22,6 +22,16 @@ axiosInstance.interceptors.request.use(
   }
 );
 
+export const registerUser = async (email, token, firebaseId) => {
+  const response = await axiosInstance.post("/register", {
+    email: email,
+    token: token,
+    firebaseId: firebaseId,
+  });
+  console.log(response);
+  return response;
+};
+
 export const getCourses = async () => {
   const response = await axiosInstance.get(`/courses`);
   return response.data;
@@ -122,6 +132,11 @@ export const getTests = async () => {
 export const getTest = async (id) => {
   const response = await axiosInstance.get(`/test/${id}`);
   return response.data.test;
+};
+
+export const getTestAnalysis = async (id) => {
+  const response = await axiosInstance.get(`/testanalysis/${id}`);
+  return response.data.testResult;
 };
 
 export default axiosInstance;

@@ -80,7 +80,7 @@ const QuizAnalysis = () => {
       <span>
         <Icon icon="fxemoji:trophy" width={50} height={50} />
       </span>
-      <Title>{quizData.userQuiz.quiz.name}</Title>
+      <Title>{quizData.userQuiz.quiz.title}</Title>
       <MainContainer>
         <Container>
           <ScoreTitle> {"Questions"}</ScoreTitle>
@@ -115,7 +115,7 @@ const QuizAnalysis = () => {
                   <CorrectAnswerText>
                     {currentQuestion.question.correctAnswer}
                   </CorrectAnswerText>
-                  {"Solution"}:
+                  {"Explanation"}:
                   <SolutionText>
                     {currentQuestion.question.explanation}
                   </SolutionText>

@@ -27,9 +27,9 @@ const menuItems = [
     name: "Tools",
     path: "/tools",
     subItems: [
-      { name: "Flashcards", path: "/create/blog" },
-      { name: "Booklets", path: "/create/portfolio" },
-      { name: "Questions", path: "/create/portfolio" },
+      { name: "Flashcards", path: "/flashcards" },
+      { name: "Questions", path: "/questions" },
+      { name: "Solutions", path: "/solutions" },
     ],
   },
 ];
