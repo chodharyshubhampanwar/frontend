@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import axios from "axios";
-
+import { getFlashcards } from "./utils/api";
 const FlashcardContainer = styled.div`
   max-width: 600px;
   margin: 0 auto;
@@ -37,8 +36,7 @@ const Flashcard = () => {
 
   const fetchFlashcards = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/flashcards");
-      const data = response.data.flashcards; // Access the 'flashcards' array
+      const data = await getFlashcards();
       setFlashcards(data);
     } catch (error) {
       console.error("Error fetching flashcards:", error);

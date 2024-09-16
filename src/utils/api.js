@@ -139,4 +139,9 @@ export const getTestAnalysis = async (id) => {
   return response.data.testResult;
 };
 
+export const getFlashcards = async () => {
+  const response = await axiosInstance.get(`/flashcards`);
+  return response.data.flashcards;
+};
+
 export default axiosInstance;
