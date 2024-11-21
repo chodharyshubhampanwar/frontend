@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getAuth } from "firebase/auth";
 
-const API_URL = "https://api.leikhub.com/api";
+const API_URL = "https://www.api.leikhub.com/api";
 
 export const axiosInstance = axios.create({
   baseURL: API_URL,

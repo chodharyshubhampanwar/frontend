@@ -1,21 +1,7 @@
-import React, { useEffect } from "react";
+import MathDisplay from "../Grade";
 
-const MathJaxRenderer = ({ equation, inline = false }) => {
-  useEffect(() => {
-    if (window.MathJax) {
-      window.MathJax.typesetPromise();
-    }
-  }, [equation]);
-
-  return (
-    <span>
-      {inline ? (
-        <span>{`\\(${equation}\\)`}</span>
-      ) : (
-        <div>{`\\[${equation}\\]`}</div>
-      )}
-    </span>
-  );
+const MathEquation = ({ equation, inline = false }) => {
+  return <MathDisplay math={equation} displayMode={!inline} />;
 };
 
-export default MathJaxRenderer;
+export default MathEquation;
