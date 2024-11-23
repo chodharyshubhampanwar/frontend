@@ -38,7 +38,8 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
 
-  const logo = "https://d3ndsbvbnbtbm9.cloudfront.net/leikhub-web-logo.svg";
+  const logo =
+    "https://res.cloudinary.com/melenqli/image/upload/v1732365564/eo651wwkxskcscjkzq9r.svg";
 
   const handleMenuClick = () => {
     setShowMenu(!showMenu);

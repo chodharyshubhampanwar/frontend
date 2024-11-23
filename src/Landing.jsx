@@ -14,7 +14,6 @@ import {
   FooterContainer,
 } from "../src/styles/Landing.js";
 import CourseDetails from "../src/components/CourseDetails.jsx";
-import MathEquation from "./components/MathEquation.jsx";
 
 const { learning, assessments, tools } = landingPageContent;
 
@@ -58,7 +57,6 @@ const Landing = () => {
         description={tools.description}
         icon={tools.iconImage}
       />
-      <MathEquation equation="\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}" />
       <footer>
         <FooterContainer>
           <p>{data.footer}</p>

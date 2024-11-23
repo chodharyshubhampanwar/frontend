@@ -168,7 +168,7 @@ const Quiz = ({ quiz, onQuizEnd }) => {
   return (
     <QuizContainer>
       <QuizHeader>
-        <span>{quiz.name}</span>
+        <span>{quiz.title}</span>
         <span>{questionTimer}</span>
         <span onClick={handleExit} style={{ cursor: "pointer" }}>
           <Icon icon="mingcute:close-fill" width={20} height={20} />

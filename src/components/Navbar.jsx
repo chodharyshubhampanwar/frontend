@@ -12,7 +12,8 @@ import DiscordButton from "./DiscordButton.jsx";
 
 const MobileNavbar = () => {
   const [open, setOpen] = useState(false);
-  const logo = "https://d3ndsbvbnbtbm9.cloudfront.net/leikhub-web-logo.svg";
+  const logo =
+    "https://res.cloudinary.com/melenqli/image/upload/v1732365564/eo651wwkxskcscjkzq9r.svg";
 
   const handleLinkClick = () => {
     setOpen(false);

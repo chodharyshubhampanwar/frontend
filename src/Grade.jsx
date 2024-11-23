@@ -76,25 +76,3 @@
 // };
 
 // export default Grade;
-
-import React, { useEffect, useRef } from "react";
-import katex from "katex";
-import "katex/dist/katex.min.css";
-
-const MathDisplay = ({ math, displayMode = false }) => {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      katex.render(math, containerRef.current, {
-        throwOnError: false,
-        displayMode: displayMode,
-      });
-    }
-  }, [math, displayMode]);
-
-  return <div ref={containerRef} />
-
-};
-
-export default MathDisplay;

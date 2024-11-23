@@ -7,10 +7,14 @@ import {
   SubmitButton,
 } from "../../styles/Question.js";
 import { FaSpinner } from "react-icons/fa";
-import MathJaxRenderer from "../MathEquation.jsx";
+import MathEquation from "../../components/MathEquation.jsx";
 
 const Question = ({ question, onAnswer, submitting }) => {
   const [answer, setAnswer] = useState("");
+
+  const decodeMathEquation = (equation) => {
+    return equation.replace(/\\\\/g, "\\").replace(/\\n/g, "");
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,7 +33,7 @@ const Question = ({ question, onAnswer, submitting }) => {
     <QuestionForm onSubmit={handleSubmit}>
       <QuestionText>
         {question.type === "math" ? (
-          <MathJaxRenderer equation={question.text} />
+          <MathEquation equation={decodeMathEquation(question.equation)} />
         ) : (
           question.text
         )}
@@ -51,7 +55,32 @@ const Question = ({ question, onAnswer, submitting }) => {
       {question.type === "fill_in_the_blank" && (
         <OptionInput type="text" onChange={handleChange} />
       )}
-      {question.type === "math" && <MathJaxRenderer equation={question.text} />}
+      {question.type === "math" &&
+        question.options.map((option, index) => (
+          <OptionContainer key={index}>
+            <OptionInput
+              type="radio"
+              id={`option${index}`}
+              name="option"
+              value={option}
+              onChange={handleChange}
+            />
+            <label htmlFor={`option${index}`}>
+              {
+                <MathEquation
+                  equation={decodeMathEquation(option)}
+                  displayMode={true}
+                />
+              }
+            </label>
+          </OptionContainer>
+        ))}
+      {/* {question.type === "math" && (
+        <MathEquation
+          equation={decodeMathEquation(question.equation)}
+          displayMode={true}
+        />
+      )} */}
       {question.type === "true_false" && (
         <div>
           <OptionContainer>
