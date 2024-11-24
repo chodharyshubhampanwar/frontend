@@ -112,7 +112,7 @@ const CourseDetails = ({
     <Container>
       <HeaderContainer>
         <HeadingContainer>
-          <StyledIcon src={icon} alt="HeroIcon" />
+          {/* <StyledIcon src={icon} alt="HeroIcon" /> */}
           <Heading>{heading}</Heading>
         </HeadingContainer>
         {/* <ViewLink to={viewAllLink}>

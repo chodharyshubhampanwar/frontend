@@ -1,6 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { FaCalculator, FaMicroscope, FaBookReader } from "react-icons/fa";
+import { TbSettings } from "react-icons/tb";
+import {
+  PiDnaBold,
+  PiMathOperationsBold,
+  PiChatCircleDotsBold,
+  PiComputerTowerBold,
+  PiDotsNineBold,
+  PiHeartbeatBold,
+  PiPaintBrushBold,
+  PiSuitcaseSimpleBold,
+} from "react-icons/pi";
+import { ImAccessibility } from "react-icons/im";
+import { RiGovernmentLine } from "react-icons/ri";
+
 import { Link } from "react-router-dom";
 
 const Container = styled.ul`
@@ -29,9 +42,15 @@ const Tab = styled(Link)`
   text-decoration: none;
 `;
 
-const IconWrapper = styled.img`
-  width: 25px;
+// const IconWrapper = styled.img`
+//   width: 25px;
+//   margin-bottom: 10px;
+// `;
+
+const IconWrapper = styled.div`
+  font-size: 32px; /* Adjust the size of the icon */
   margin-bottom: 10px;
+  color: #687b8c;
 `;
 
 const TabTitle = styled.span`
@@ -56,56 +75,56 @@ const SubjectTabs = () => {
     {
       name: "All",
       link: "/subject/all",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/all-subjects-icon.svg",
+      icon: <PiDotsNineBold />,
     },
     {
       name: "Math",
       link: "/math",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/maths-subject-icon.svg",
+      icon: <PiMathOperationsBold />,
     },
     {
       name: "Science",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/sciences-icon.svg",
+      icon: <PiDnaBold />,
       link: "/english",
     },
     {
       name: "English",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/english-subject-icon.svg",
+      icon: <PiChatCircleDotsBold />,
       link: "/subject/english",
     },
     {
       name: "Computer",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/programming-ai-icon.svg",
+      icon: <PiComputerTowerBold />,
       link: "/subject/cs",
     },
     {
       name: "Social",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/social-sc-icon.svg",
-      link: "/english",
+      icon: <RiGovernmentLine />,
+      link: "/social-science",
     },
     {
       name: "Humanities",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/humanities-icon.svg",
+      icon: <ImAccessibility />,
       link: "/subject/cs",
     },
     {
       name: "Engineering",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/engineering-icon.svg",
+      icon: <TbSettings />,
       link: "/english",
     },
     {
       name: "Business",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/business-icon.svg",
+      icon: <PiSuitcaseSimpleBold />,
       link: "/subject/cs",
     },
     {
       name: "Creative",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/arts-icon.svg",
+      icon: <PiPaintBrushBold />,
       link: "/english",
     },
     {
       name: "Lifestyle",
-      icon: "https://d3ndsbvbnbtbm9.cloudfront.net/personality-icon.svg",
+      icon: <PiHeartbeatBold />,
       link: "/subject/cs",
     },
   ];
@@ -114,7 +133,9 @@ const SubjectTabs = () => {
     <Container>
       {subjects.map((subject, index) => (
         <Tab to={subject.link} key={index}>
-          <IconWrapper src={subject.icon} alt="subject icon" />
+          {/* <IconWrapper src={subject.icon} alt="subject icon" />
+           */}
+          <IconWrapper>{subject.icon}</IconWrapper>
           <TabTitle>{subject.name}</TabTitle>
         </Tab>
       ))}
