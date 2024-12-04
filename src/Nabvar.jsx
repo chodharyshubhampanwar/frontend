@@ -6,30 +6,31 @@ import MobileNavbar from "../src/components/Navbar.jsx";
 
 const menuItems = [
   {
-    name: "Learn",
-    path: "/learn",
+    name: "K-12",
+    path: "/school",
     subItems: [
-      { name: "K-12", path: "/learn/k12" },
-      { name: "UG", path: "/learn/undergraduate" },
-      { name: "PG", path: "/learn/graduate" },
+      { name: "9-10", path: "/foundations" },
+      { name: "Commerce", path: "/commerce" },
+      { name: "Science", path: "/science" },
+      { name: "Humanities", path: "/humanities" },
     ],
   },
   {
-    name: "Practice",
-    path: "/practice",
+    name: "Competitive",
+    path: "/competitive",
     subItems: [
-      { name: "Exams", path: "/exams" },
-      { name: "Tests", path: "/tests" },
-      { name: "Quizzes", path: "/quizzes" },
+      { name: "IIT-JEE", path: "/iit-jee" },
+      { name: "NEET", path: "/neet" },
+      { name: "CUET", path: "/cuet" },
     ],
   },
   {
-    name: "Tools",
-    path: "/tools",
+    name: "Govt",
+    path: "/jobs",
     subItems: [
-      { name: "Flashcards", path: "/flashcards" },
-      { name: "Questions", path: "/questions" },
-      { name: "Solutions", path: "/solutions" },
+      { name: "Bank", path: "/bank" },
+      { name: "Railways", path: "/questions" },
+      { name: "UPSC", path: "/solutions" },
     ],
   },
 ];
