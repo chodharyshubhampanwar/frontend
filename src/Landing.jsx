@@ -1,8 +1,6 @@
 import React from "react";
 import data from "./data.json";
-import landingPageContent from "./services/landingPageContent.json";
 import SocialLogin from "./SocialLogin";
-import { learn, assessment, resources } from "../src/services/CourseContent.js";
 import SubjectTabs from "./components/SubjectTab.jsx";
 import {
   Container,
@@ -13,9 +11,7 @@ import {
   StyledImage,
   FooterContainer,
 } from "../src/styles/Landing.js";
-import CourseDetails from "../src/components/CourseDetails.jsx";
-
-const { learning, assessments, tools } = landingPageContent;
+import Features from "./Features.jsx";
 
 const Landing = () => {
   return (
@@ -32,31 +28,7 @@ const Landing = () => {
       </Container>
 
       <SubjectTabs />
-
-      {/* <LandingPage /> */}
-
-      <CourseDetails
-        heading="Learn"
-        viewAllLink="/learn"
-        cardData={learn}
-        description={learning.description}
-        icon={learning.iconImage}
-      />
-
-      <CourseDetails
-        heading="Practice"
-        viewAllLink="/test"
-        cardData={assessment}
-        description={assessments.description}
-        icon={assessments.iconImage}
-      />
-      <CourseDetails
-        heading="Improve"
-        viewAllLink="/practice"
-        cardData={resources}
-        description={tools.description}
-        icon={tools.iconImage}
-      />
+      <Features />
       <footer>
         <FooterContainer>
           <p>{data.footer}</p>
