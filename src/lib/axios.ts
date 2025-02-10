@@ -13,7 +13,7 @@ export const api = axios.create({
 });
 
 // Add interceptor to dynamically get the current token
-api.interceptors.request.use(async (config) => {
+api.interceptors.request.use(async (config: any) => {
   const auth = getAuth();
   const user = auth.currentUser;
   if (user) {
