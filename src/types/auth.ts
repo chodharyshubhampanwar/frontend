@@ -11,6 +11,12 @@ export interface AuthState {
   loading: boolean;
 }
 
+export interface AuthError {
+  code: string;
+  message: string;
+}
+
+
 export interface AuthContextType {
   state: AuthState;
   dispatch: React.Dispatch<AuthAction>;

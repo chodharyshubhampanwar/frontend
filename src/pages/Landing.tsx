@@ -1,10 +1,11 @@
 import SignIn from "../components/SignIn";
 import Paths from "../components/Paths";
+import NavBar from "../components/Navbar";
 
 export const Landing = () => {
   return (
     <div>
-      <h1>Landing</h1>
+      <NavBar />
       <Paths />
       <SignIn />
     </div>

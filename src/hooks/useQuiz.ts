@@ -1,31 +1,18 @@
-import { useQuery, useMutation, useQueryClient } from "react-query";
-import { quizService } from "../services/quizService";
-import { Quiz, QuizAttempt } from "../types/quiz";
+import { useEffect } from 'react';
+import { useQuizStore } from '../store/useQuizStore';
 
 export const useQuiz = (quizId: string) => {
-  const queryClient = useQueryClient();
+  const { fetchQuiz, loading, error, quiz } = useQuizStore();
 
-  const {
-    data: quiz,
-    isLoading,
-    error,
-  } = useQuery<Quiz | null>(["quiz", quizId], () =>
-    quizId ? quizService.getQuiz(quizId) : Promise.resolve(null)
-  );
-
-  const createQuizAttempt = useMutation<QuizAttempt, Error, void>(
-    () => quizService.createQuizAttempt(quizId),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries(["quiz", quizId]);
-      },
+  useEffect(() => {
+    if (quizId) {
+      fetchQuiz(quizId);
     }
-  );
+  }, [quizId, fetchQuiz]);
 
   return {
     quiz,
-    isLoading,
-    error,
-    createQuizAttempt: createQuizAttempt.mutate,
+    isLoading: loading,
+    error
   };
 };

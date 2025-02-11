@@ -6,11 +6,23 @@ const apiUrl = import.meta.env.VITE_DEV_API_URL;
 // Create axios instance with base configuration
 export const api = axios.create({
   baseURL: apiUrl,
+  timeout: 10000,
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
   },
 });
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      // Handle unauthorized access
+      window.location.href = '/signin';
+    }
+    return Promise.reject(error);
+  }
+);
 
 // Add interceptor to dynamically get the current token
 api.interceptors.request.use(async (config: any) => {
