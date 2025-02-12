@@ -1,26 +1,8 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDecks } from "../hooks/useDeck";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { TbCardsFilled } from "react-icons/tb";
-
-interface Deck {
-  id: string;
-  title: string;
-  description: string;
-  isPublic: boolean;
-  createdAt: string;
-  updatedAt: string;
-  userId: string;
-  cards: Array<{
-    id: string;
-    front: string;
-    back: string;
-  }>;
-  tags: string[];
-  subject?: string;
-  grade?: number;
-}
 
 const DeckList = () => {
   const navigate = useNavigate();
