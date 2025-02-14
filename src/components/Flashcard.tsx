@@ -92,7 +92,7 @@ const DeckPage = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
+    <div className="max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-6 h-[100vh]">
       <div className="mb-6">
         <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-2">
           {deck.title}
@@ -111,7 +111,7 @@ const DeckPage = () => {
         >
           <FaTimesCircle className="text-xl" />
           <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-            Still Don't Know
+            Still Learning
           </span>
         </button>
         <button
