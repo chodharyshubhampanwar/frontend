@@ -3,6 +3,7 @@ import { Landing } from "./pages/Landing";
 import QuizPage from "./pages/Quiz";
 import DeckPage from "./pages/DeckPage";
 import Flashcard from "./components/Flashcard";
+import Dashboard from "./pages/Dashboard";
 import ErrorPage from "./pages/Error";
 
 const router = createBrowserRouter([
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
   {
     path: "/deck/:deckId",
     element: <Flashcard />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/home",
+    element: <Dashboard />,
     errorElement: <ErrorPage />,
   },
 

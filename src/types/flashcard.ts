@@ -17,8 +17,9 @@ export interface Deck {
   userId: string;
   cards: Card[];
   tags: string[];
-  grade?: number;
+  grade?: string;
   subject?: string;
+  board?: string;
 }
 
 export interface StudyState {
