@@ -5,7 +5,7 @@ import DeckPage from "./pages/DeckPage";
 import Flashcard from "./components/Flashcard";
 import Dashboard from "./pages/Dashboard";
 import ErrorPage from "./pages/Error";
-
+import TestContainer from "./components/TestContainer";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,6 +31,10 @@ const router = createBrowserRouter([
     path: "/home",
     element: <Dashboard />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/test/:testId",
+    element: <TestContainer />,
   },
 
   {
