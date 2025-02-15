@@ -8,7 +8,7 @@ export const SidePanel: React.FC = () => {
     userAnswers,
     currentQuestionIndex,
     setCurrentQuestion,
-    completeExam,
+    completeTest,
   } = useTestStore();
 
   if (!mockTest) return null;
@@ -49,7 +49,7 @@ export const SidePanel: React.FC = () => {
 
     try {
       const result = await testService.submitTest(mockTest.id, answers);
-      completeExam(result);
+      completeTest(result);
     } catch (error) {
       console.error("Failed to submit test:", error);
     }
@@ -76,11 +76,11 @@ export const SidePanel: React.FC = () => {
       </div>
 
       <div className="flex-1 overflow-y-auto">
-        {mockTest.sections.map((section, sectionIndex) => (
+        {mockTest.sections.map((section) => (
           <div key={section.id} className="mb-6">
             <h3 className="font-semibold mb-2">{section.title}</h3>
             <div className="grid grid-cols-5 gap-2">
-              {section.questions.map((question, questionIndex) => {
+              {section.questions.map((question) => {
                 const globalIndex = allQuestions.findIndex(
                   (q) => q.id === question.id
                 );

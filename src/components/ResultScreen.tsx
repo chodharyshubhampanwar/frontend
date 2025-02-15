@@ -3,9 +3,9 @@ import { useTestStore } from "../store/testStore";
 import { Option } from "../types/test";
 
 export const ResultScreen: React.FC = () => {
-  const { mockTest, examResult, userAnswers } = useTestStore();
+  const { mockTest, testResult, userAnswers } = useTestStore();
 
-  if (!mockTest || !examResult) return null;
+  if (!mockTest || !testResult) return null;
 
   const allQuestions = mockTest.sections.flatMap(
     (section) => section.questions
@@ -23,35 +23,35 @@ export const ResultScreen: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           <div className="bg-green-100 p-4 rounded-lg">
             <div className="text-green-800 text-lg font-semibold">Correct</div>
-            <div className="text-2xl font-bold">{examResult.correct}</div>
+            <div className="text-2xl font-bold">{testResult.correct}</div>
           </div>
           <div className="bg-red-100 p-4 rounded-lg">
             <div className="text-red-800 text-lg font-semibold">Incorrect</div>
-            <div className="text-2xl font-bold">{examResult.incorrect}</div>
+            <div className="text-2xl font-bold">{testResult.incorrect}</div>
           </div>
           <div className="bg-gray-100 p-4 rounded-lg">
             <div className="text-gray-800 text-lg font-semibold">
               Unanswered
             </div>
-            <div className="text-2xl font-bold">{examResult.unanswered}</div>
+            <div className="text-2xl font-bold">{testResult.unanswered}</div>
           </div>
           <div className="bg-blue-100 p-4 rounded-lg">
             <div className="text-blue-800 text-lg font-semibold">
               Total Marks
             </div>
-            <div className="text-2xl font-bold">{examResult.totalMarks}</div>
+            <div className="text-2xl font-bold">{testResult.totalMarks}</div>
           </div>
           <div className="bg-orange-100 p-4 rounded-lg">
             <div className="text-orange-800 text-lg font-semibold">
               Negative Marks
             </div>
-            <div className="text-2xl font-bold">{examResult.negativeMarks}</div>
+            <div className="text-2xl font-bold">{testResult.negativeMarks}</div>
           </div>
           <div className="bg-purple-100 p-4 rounded-lg">
             <div className="text-purple-800 text-lg font-semibold">
               Final Score
             </div>
-            <div className="text-2xl font-bold">{examResult.finalScore}</div>
+            <div className="text-2xl font-bold">{testResult.finalScore}</div>
           </div>
         </div>
       </div>

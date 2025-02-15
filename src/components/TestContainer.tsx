@@ -10,9 +10,9 @@ import ResultScreen from "./ResultScreen";
 
 export const TestContainer: React.FC = () => {
   const { testId } = useParams<{ testId: string }>();
-  const { mockTest, setMockTest, isTestComplete } = useTestStore();
+  const { setMockTest, isTestComplete } = useTestStore();
 
-  const { data, isLoading } = useQuery(
+  const { isLoading } = useQuery(
     ["mockTest", testId],
     () => testService.getMockTest(testId!),
     {
