@@ -1,84 +1,36 @@
-// src/components/Sidebar.tsx
-import React from "react";
-import { Home, Video, Music, Settings } from "lucide-react";
-import { X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { SIDE_NAV_ITEMS } from "../constants";
 
 interface SidebarProps {
-  isExpanded: boolean;
-  isMobileOpen: boolean;
-  onCloseMobile: () => void;
+  isSidebarOpen: boolean;
 }
 
-const menuItems = [
-  { title: "Home", icon: Home },
-  { title: "Videos", icon: Video },
-  { title: "Music", icon: Music },
-  { title: "Settings", icon: Settings },
-];
+const Sidebar = ({ isSidebarOpen }: SidebarProps) => {
+  const navigate = useNavigate();
 
-const Sidebar: React.FC<SidebarProps> = ({
-  isExpanded,
-  isMobileOpen,
-  onCloseMobile,
-}) => {
   return (
-    <>
-      {/* Mobile Sidebar Overlay */}
-      <div
-        className={`md:hidden fixed inset-0 z-40 transform transition-transform duration-300 ${
-          isMobileOpen ? "translate-x-0" : "-translate-x-full"
-        } bg-gray-800`}
-      >
-        <div className="p-4 flex justify-end">
-          <button onClick={onCloseMobile}>
-            <X className="w-6 h-6 text-white" />
+    <div
+      className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white border-r transition-transform duration-300 ease-in-out z-40
+        ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        }
+        ${isSidebarOpen ? "w-64" : "lg:w-16"}`}
+    >
+      <div className="flex flex-col gap-2 p-2">
+        {SIDE_NAV_ITEMS.map((item) => (
+          <button
+            key={item.label}
+            onClick={() => navigate(item.path)}
+            className="flex items-center gap-4 p-2 hover:bg-gray-100 rounded-lg text-gray-700"
+          >
+            <item.icon className="w-6 h-6 min-w-[24px]" />
+            {isSidebarOpen && (
+              <span className="text-sm truncate">{item.label}</span>
+            )}
           </button>
-        </div>
-        <nav className="mt-4">
-          {menuItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                className="flex items-center p-4 hover:bg-gray-700 cursor-pointer"
-              >
-                <Icon className="w-6 h-6" />
-                <span className="ml-4">{item.title}</span>
-              </div>
-            );
-          })}
-        </nav>
+        ))}
       </div>
-
-      {/* Desktop Sidebar */}
-      <div
-        className={`hidden md:flex flex-col bg-gray-800 text-white transition-all duration-300 ${
-          isExpanded ? "w-64" : "w-20"
-        } h-full`}
-      >
-        <div className="flex items-center justify-center h-16 border-b border-gray-700">
-          {isExpanded ? (
-            <span className="text-xl font-bold">Dashboard</span>
-          ) : (
-            <span className="text-xl font-bold">DB</span>
-          )}
-        </div>
-        <nav className="flex-1 overflow-y-auto">
-          {menuItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                className="flex items-center p-4 hover:bg-gray-700 cursor-pointer"
-              >
-                <Icon className="w-6 h-6" />
-                {isExpanded && <span className="ml-4">{item.title}</span>}
-              </div>
-            );
-          })}
-        </nav>
-      </div>
-    </>
+    </div>
   );
 };
 

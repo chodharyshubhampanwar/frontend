@@ -4,6 +4,8 @@ export interface User {
   name: string | null;
   username: string | null;
   createdAt: string;
+  avatar: string;
+  fullName: string;
 }
 
 export interface AuthState {
@@ -15,7 +17,6 @@ export interface AuthError {
   code: string;
   message: string;
 }
-
 
 export interface AuthContextType {
   state: AuthState;

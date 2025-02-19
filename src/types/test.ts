@@ -8,12 +8,11 @@ export interface Option {
 export interface Question {
   id: string;
   content: string;
-  options: Option;
-  correctAnswer: keyof Option;
-  explanation: string;
+  options: Record<string, string>;
   marks: number;
   negativeMarks: number;
-  sectionId: string;
+  explanation?: string;
+  correctAnswer?: string;
 }
 
 export interface Section {
@@ -27,10 +26,14 @@ export interface MockTest {
   id: string;
   title: string;
   description: string;
-  duration: number;
+  duration: number; // in minutes
+  subject: string; // NEW field for filtering
+  grade: string; // NEW field for filtering
+  board: string; // NEW field for filtering
   sections: Section[];
   createdAt: string;
   updatedAt: string;
+  topics?: string[]; // optional extra categorization
 }
 
 export interface UserAnswer {
@@ -44,6 +47,4 @@ export interface TestResult {
   incorrect: number;
   unanswered: number;
   totalMarks: number;
-  negativeMarks: number;
-  finalScore: number;
 }

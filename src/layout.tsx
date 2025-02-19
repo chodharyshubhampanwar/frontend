@@ -1,11 +1,20 @@
-import { Outlet } from "react-router";
+import Nav from "@/components/Nav";
 
-export default function Dashboard() {
+import { Outlet } from "react-router-dom";
+
+const Layout = () => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      {/* will either be <Home/> or <Settings/> */}
-      <Outlet />
+    <div className="flex h-screen overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <Nav />
+        <main className="flex-1 overflow-y-auto p-4">
+          <div className="max-w-7xl mx-auto">
+            <Outlet />
+          </div>
+        </main>
+      </div>
     </div>
   );
-}
+};
+
+export default Layout;

@@ -4,7 +4,7 @@ interface FilterDropdownProps {
   label: string;
   value: string;
   defaultValue?: string;
-  options: string[];
+  options: { label: string; value: string }[];
   onChange: (value: string) => void;
   //   onClear: () => void;
 }
@@ -26,8 +26,8 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
       >
         <option value={defaultValue}>All {label}</option>
         {options.map((opt) => (
-          <option key={opt} value={opt}>
-            {opt}
+          <option key={opt.value} value={opt.value} className="text-blue-700">
+            {opt.label}
           </option>
         ))}
       </select>

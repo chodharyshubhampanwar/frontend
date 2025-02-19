@@ -4,6 +4,7 @@ import { useDecks } from "../hooks/useDeck";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { TbCardsFilled } from "react-icons/tb";
 import FilterDropdown from "../components/FilterDropdown";
+import { Filter, X } from "lucide-react";
 
 const DeckList = () => {
   const navigate = useNavigate();
@@ -43,7 +44,6 @@ const DeckList = () => {
 
   const filteredDecks = useMemo(() => {
     if (!decks) return [];
-
     return decks.filter((deck) => {
       const matchesSubject =
         selectedSubject === "all" || deck.subject === selectedSubject;
@@ -74,49 +74,42 @@ const DeckList = () => {
     );
   }
 
-  // Filter content to be reused in both desktop and mobile modal
+  // Reusable filter content
   const FilterContent = () => (
     <div className="w-full flex flex-col md:flex-row items-center gap-3">
       <FilterDropdown
         label="Subject"
         value={selectedSubject}
-        options={subjectOptions}
+        options={subjectOptions.map((s) => ({ label: s, value: s }))}
         onChange={setSelectedSubject}
       />
       <FilterDropdown
         label="Grade"
         value={selectedGrade}
-        options={gradeOptions}
+        options={gradeOptions.map((g) => ({ label: g, value: g }))}
         onChange={setSelectedGrade}
       />
       <FilterDropdown
         label="Board"
         value={selectedBoard}
-        options={boardOptions}
+        options={boardOptions.map((b) => ({ label: b, value: b }))}
         onChange={setSelectedBoard}
       />
-      <button
-        onClick={() => {
-          setSelectedSubject("all");
-          setSelectedGrade("all");
-          setSelectedBoard("all");
-        }}
-        className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg border border-gray-400 transition-colors flex items-center gap-2"
-      >
-        <span>Clear All Filters</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
+      {(selectedSubject !== "all" ||
+        selectedGrade !== "all" ||
+        selectedBoard !== "all") && (
+        <button
+          onClick={() => {
+            setSelectedSubject("all");
+            setSelectedGrade("all");
+            setSelectedBoard("all");
+          }}
+          className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg border border-gray-400 transition-colors flex items-center gap-2"
         >
-          <path
-            fillRule="evenodd"
-            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
-      </button>
+          <span>Clear All Filters</span>
+          <X className="h-5 w-5" />
+        </button>
+      )}
     </div>
   );
 
@@ -134,6 +127,10 @@ const DeckList = () => {
 
       {/* Desktop Filters */}
       <div className="hidden md:block mb-6">
+        <div className="flex items-center gap-2 mb-4">
+          <Filter className="h-6 w-6 text-gray-600" />
+          <h2 className="text-xl font-semibold">Filters</h2>
+        </div>
         <FilterContent />
       </div>
 
@@ -141,21 +138,20 @@ const DeckList = () => {
       <div className="md:hidden mb-6">
         <button
           onClick={() => setShowFilterModal(true)}
-          className="w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg border-2 border-gray-300 transition-colors"
+          className="w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg border-2 border-gray-300 transition-colors flex items-center gap-2 justify-center"
         >
-          Filters
+          <Filter className="h-6 w-6 text-gray-600" />
+          <span>Filters</span>
         </button>
       </div>
 
       {/* Mobile Filter Modal */}
       {showFilterModal && (
         <div className="fixed inset-0 z-50">
-          {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black opacity-50"
             onClick={() => setShowFilterModal(false)}
           ></div>
-          {/* Modal Panel */}
           <div className="absolute top-0 left-0 w-full h-full bg-white transform transition-transform duration-300">
             <div className="p-4">
               <div className="flex justify-between items-center mb-4">

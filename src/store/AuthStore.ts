@@ -6,6 +6,12 @@ import { userService } from "../services/userService";
 import { User, AuthError } from "../types/auth";
 import { toast } from "react-hot-toast";
 
+interface ApiErrorResponse {
+  response?: { status: number; data?: { error: string } };
+  code?: string;
+  message: string;
+}
+
 interface AuthState {
   user: User | null;
   loading: boolean;
@@ -57,6 +63,8 @@ export const useAuthStore = create<AuthState>()(
               firebaseUser.displayName?.toLowerCase().replace(/\s+/g, "_") ||
               `user_${Date.now()}`,
             createdAt: new Date().toISOString(),
+            avatar: firebaseUser.photoURL || "",
+            fullName: firebaseUser.displayName || "",
           };
 
           try {
@@ -64,21 +72,23 @@ export const useAuthStore = create<AuthState>()(
             setUser(newUser);
             toast.success("Successfully signed in");
             onSuccess?.();
-          } catch (error: any) {
-            if (error.response?.status === 409) {
+          } catch (error: unknown) {
+            const err = error as ApiErrorResponse;
+            if (err.response?.status === 409) {
               setUser({ ...userData });
               toast.success("Successfully signed in");
               onSuccess?.();
             } else {
-              throw error;
+              throw err;
             }
           }
-        } catch (error: any) {
+        } catch (error: unknown) {
+          const err = error as ApiErrorResponse;
           const authError: AuthError = {
-            code: error.code || "unknown",
+            code: err.code || "unknown",
             message:
-              error.response?.data?.error ||
-              error.message ||
+              err.response?.data?.error ||
+              err.message ||
               "Authentication failed",
           };
           setError(authError);
@@ -94,10 +104,11 @@ export const useAuthStore = create<AuthState>()(
           setUser(null);
           toast.success("Successfully signed out");
           onSuccess?.();
-        } catch (error: any) {
+        } catch (error: unknown) {
+          const err = error as ApiErrorResponse;
           const authError: AuthError = {
-            code: error.code || "unknown",
-            message: error.message || "Failed to sign out",
+            code: err.code || "unknown",
+            message: err.message || "Failed to sign out",
           };
           setError(authError);
           toast.error(authError.message);
