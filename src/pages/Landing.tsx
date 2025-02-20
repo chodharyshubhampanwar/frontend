@@ -1,14 +1,19 @@
+import Features from "@/components/Features";
+import { featuresData } from "../features";
+import FooterHero from "@/components/FooterHero";
+import Hero from "@/components/Hero";
+import { GoalsGrid } from "@/components/Goals";
+import ToolsGrid from "@/components/Tools";
+
 function Landing() {
   return (
-    <div className="flex h-screen overflow-hidden">
-      {/* Main content area */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Main content with scroll */}
-        <main className="flex-1 overflow-y-auto p-4">
-          <div className="max-w-7xl mx-auto">{"sdssdfsff"}</div>
-        </main>
-      </div>
-    </div>
+    <main className="flex-1  p-4">
+      <Hero />
+      <GoalsGrid />
+      <Features features={featuresData} />
+      <ToolsGrid />
+      <FooterHero />
+    </main>
   );
 }
 

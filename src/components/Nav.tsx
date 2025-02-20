@@ -62,7 +62,6 @@ const Nav: React.FC = () => {
           >
             <Menu className="w-6 h-6" />
           </button>
-
           <img
             src="https://res.cloudinary.com/melenqli/image/upload/v1739880250/dah78d9kmslgswfbawht.svg"
             alt="Logo"
@@ -70,12 +69,17 @@ const Nav: React.FC = () => {
             onClick={() => navigate("/")}
           />
 
-          {/* On desktop, show Explore button (opens modal) */}
+          {/* Desktop Explore Button */}
           <button
-            onClick={() => setIsExploreOpen(true)}
-            className="hidden md:block px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+            onClick={() => setIsExploreOpen((prev) => !prev)}
+            className="hidden md:flex items-center gap-2 font-bold text-black px-4 py-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
           >
-            Explore
+            <span>Explore</span>
+            {isExploreOpen ? (
+              <ChevronUp className="w-4 h-4" />
+            ) : (
+              <ChevronDown className="w-4 h-4" />
+            )}
           </button>
         </div>
 

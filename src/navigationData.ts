@@ -4,8 +4,8 @@ import { NavigationData } from "./types/nav";
 export const navigationData: NavigationData = {
   categories: [
     {
-      id: "goal",
-      title: "Goal",
+      id: "goals",
+      title: "Goals",
       items: [
         { id: "class1", name: "Class 1", path: "/goal/class-1" },
         { id: "class2", name: "Class 2", path: "/goal/class-2" },
@@ -26,12 +26,11 @@ export const navigationData: NavigationData = {
       title: "Tools",
       items: [
         { id: "flashcard", name: "Flashcards", path: "/deck" },
-        { id: "match", name: "Match", path: "/match" },
-        { id: "quiz", name: "Quiz", path: "/quiz" },
         { id: "test", name: "Tests", path: "/test" },
-        { id: "pyqp", name: "PYQP", path: "/pyqp" },
         { id: "questions", name: "Question Bank", path: "/question" },
         { id: "notes", name: "Notes", path: "/notes" },
+        { id: "explanation", name: "Explanations", path: "/explanation" },
+        { id: "pyqp", name: "PYQP", path: "/pyqp" },
       ],
     },
     {
@@ -44,8 +43,8 @@ export const navigationData: NavigationData = {
           name: "Printed Notes",
           path: "/printed-notes",
         },
-        { id: "merch", name: "Merch", path: "/merch" },
         { id: "stationary", name: "Stationary", path: "/stationary" },
+        { id: "merch", name: "Merch", path: "/merch" },
       ],
     },
   ],
