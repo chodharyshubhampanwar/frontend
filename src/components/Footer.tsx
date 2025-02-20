@@ -66,7 +66,7 @@ const Footer = () => {
     ],
   };
 
-  const handleThemeChange = (newTheme) => {
+  const handleThemeChange = (newTheme: "light" | "dark" | "auto") => {
     setTheme(newTheme);
     // Here you can add your theme change logic
   };
