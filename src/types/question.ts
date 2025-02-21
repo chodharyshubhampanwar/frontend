@@ -11,7 +11,9 @@ export interface Step {
 export interface Question {
   id: string;
   content: string;
-  options: string[];
+  options: Record<string, string>;
+  optionsKeys: string[];
+  imageUrl?: string;
   correctAnswer: string;
   explanation: string;
   difficulty: string;

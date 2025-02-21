@@ -12,7 +12,7 @@ class QuestionService {
   }
 
   async getQuestion(questionId: string): Promise<Question> {
-    const response = await api.get<Question>(`/questions/${questionId}`);
+    const response = await api.get<Question>(`/question/${questionId}`);
     return response.data;
   }
 

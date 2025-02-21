@@ -26,11 +26,11 @@ export const navigationData: NavigationData = {
       title: "Tools",
       items: [
         { id: "flashcard", name: "Flashcards", path: "/deck" },
-        { id: "test", name: "Tests", path: "/test" },
+        { id: "test", name: "Mock Tests", path: "/test" },
         { id: "questions", name: "Question Bank", path: "/question" },
         { id: "notes", name: "Notes", path: "/notes" },
         { id: "explanation", name: "Explanations", path: "/explanation" },
-        { id: "pyqp", name: "PYQP", path: "/pyqp" },
+        { id: "exams", name: "Practice Exams", path: "/exams" },
       ],
     },
     {

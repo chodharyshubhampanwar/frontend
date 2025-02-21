@@ -21,7 +21,7 @@ const tools = {
     },
     {
       id: "test",
-      name: "Tests",
+      name: "Mock Tests",
       path: "/test",
       icon: FileText,
       color: "#6366F1",
@@ -53,9 +53,9 @@ const tools = {
       description: "Get detailed explanations of every topic subject wise.",
     },
     {
-      id: "pyqp",
-      name: "PYQP",
-      path: "/pyqp",
+      id: "exams",
+      name: "Practice Exams",
+      path: "/exams",
       icon: FileQuestion,
       color: "#3B82F6",
       description: "Practice with previous year questions and gain confidence.",
