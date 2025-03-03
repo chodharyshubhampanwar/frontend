@@ -53,8 +53,8 @@ export const featuresData: Feature[] = [
     description:
       "Explore curriculum-aligned courses for all subjects, featuring interactive video lessons, practice exercises, and step-by-step explanations to build a rock-solid foundation in every topic.",
     image:
-      "https://website-cdn.studysmarter.de//sites/2/sites/2/2021/12/Flashcard_Ill_3.svg",
-    bgColor: "bg-red-50",
+      "https://res.cloudinary.com/dpzpn3dkw/image/upload/w_1600,f_auto,q_auto/v1735804829/e19hnps2nfrejrjzez4n.svg?_upload_ref=ic_img_tool&__ar__=1.00",
+    bgColor: "",
   },
 
   {
@@ -63,8 +63,8 @@ export const featuresData: Feature[] = [
     subheading: "Interactive tools and real practice for exam success",
     description:
       "Millions of flashcards, notes, topic quizzes, and realistic mock tests to help you ace exams. Reinforce concepts, simulate exam conditions, track progress, and target weak areas for optimal prep.",
-    image: "https://website-cdn.studysmarter.de/2021/12/mVZdmi5Z-Explain_1.svg",
-    bgColor: "bg-green-50",
+    image: "https://res.cloudinary.com/dpzpn3dkw/image/upload/w_1600,f_auto,q_auto/v1735804825/zrmhrph3et214hxessyv.svg?_upload_ref=ic_img_tool&__ar__=1.00",
+    bgColor: "",
   },
   {
     id: 3,
@@ -73,7 +73,7 @@ export const featuresData: Feature[] = [
     description:
       "Get custom study plans that evolve with you. Our platform recommends resources, adjusts difficulty, and celebrates milestones to keep you motivated.",
     image:
-      "https://website-cdn.studysmarter.de//sites/2/sites/2/2021/12/Notes_Ill_2.svg",
-    bgColor: "bg-yellow-50",
+      "https://res.cloudinary.com/dpzpn3dkw/image/upload/w_1600,f_auto,q_auto/v1735804823/gxbno6wza22cwsdeljyj.svg?_upload_ref=ic_img_tool&__ar__=1.00",
+    bgColor: "",
   },
 ];

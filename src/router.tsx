@@ -12,6 +12,11 @@ import TestResult from "./pages/TestResult";
 import QuestionsList from "./pages/QuestionList";
 import QuestionView from "./pages/Question";
 import Layout from "./layout";
+import GoalsList from "./components/GoalsList";
+import CoursesList from "./components/CourseList";
+import SubjectDetail from "./components/SubjectDetail";
+import ChapterDetail from "./components/ ChapterDetails";
+// import ProtectedRoute from "./components/ProtectedRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,53 +27,80 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: "deck",
+        path: "decks",
         element: <DeckPage />,
       },
       {
-        path: "question",
-        element: <QuestionsList />,
+        path: "goals",
+        element: <GoalsList />,
+        errorElement: <ErrorPage />,
       },
       {
-        path: "test",
-        element: <TestsList />,
+        path: "courses/:goalId",
+        element: <CoursesList />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "subject/:subjectId",
+        element: <SubjectDetail />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "chapter/:chapterId",
+        element: <ChapterDetail />,
         errorElement: <ErrorPage />,
       },
     ],
     errorElement: <ErrorPage />,
   },
   {
-    path: "/home",
+    path: "/",
     element: <Dashboard />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/quiz/:quizId",
-    element: <QuizPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/deck/:deckId",
-    element: <Flashcard />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/test/:testId",
-    element: <TestSummary />,
-  },
-  {
-    path: "/test/:testId/attempt",
-    element: <TestAttempt />,
-  },
-  {
-    path: "/test/:testId/result",
-    element: <TestResult />,
-  },
-  {
-    path: "/question/:questionId",
-    element: <QuestionView />,
-  },
+    children: [
+      {
+        path: "deck",
+        element: <DeckPage />,
 
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "test",
+        element: <TestsList />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "question",
+        element: <QuestionsList />,
+      },
+      {
+        path: "quiz/:quizId",
+        element: <QuizPage />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "deck/:deckId",
+        element: <Flashcard />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "test/:testId",
+        element: <TestSummary />,
+      },
+      {
+        path: "test/:testId/attempt",
+        element: <TestAttempt />,
+      },
+      {
+        path: "test/:testId/result",
+        element: <TestResult />,
+      },
+      {
+        path: "question/:questionId",
+        element: <QuestionView />,
+      },
+    ],
+    errorElement: <ErrorPage />,
+  },
   {
     path: "/error",
     element: <ErrorPage />,

@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { useAuthStore } from "../store/AuthStore";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
-import SignIn from "@/components/SignIn";
 
 const DashboardLayout = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const { user } = useAuthStore();
 
-  if (!user) return <SignIn />;
+  if (!user) return <Navigate to={"/signin"} replace />;
 
   return (
     <div className="h-screen flex flex-col bg-white">

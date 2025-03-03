@@ -12,9 +12,9 @@ import {
 
 export const SIDE_NAV_ITEMS = [
   { icon: Home, label: "Home", path: "/home" },
-  { icon: Newspaper, label: "News", path: "/news" },
-  { icon: Podcast, label: "Podcasts", path: "/podcasts" },
-  { icon: BrainCircuit, label: "Machine Learning", path: "/ml" },
+  { icon: Newspaper, label: "Tests", path: "/test" },
+  { icon: Podcast, label: "Questions", path: "/question" },
+  { icon: BrainCircuit, label: "Flashcards", path: "/deck" },
   { icon: DollarSign, label: "Economics", path: "/economics" },
   { icon: Music, label: "Music", path: "/music" },
   { icon: GraduationCap, label: "Psychology", path: "/psychology" },

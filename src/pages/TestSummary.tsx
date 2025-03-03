@@ -59,7 +59,7 @@ const TestSummary: React.FC = () => {
     mockTest.topics ?? mockTest.sections.map((section) => section.title);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-6 space-y-8">
         {/* Top Section: Test Info, Stats & Action Buttons */}
         <div className="bg-white shadow rounded-lg p-6 flex flex-col md:flex-row justify-between items-center">
