@@ -4,7 +4,10 @@ import { courseService } from "@/services/courseService";
 
 interface CompleteChapterInput {
   userId: string;
+  topicId: string;
   chapterId: string;
+  completed: boolean;
+  progress: number;
 }
 
 export const useCompleteChapter = () => {
@@ -12,7 +15,7 @@ export const useCompleteChapter = () => {
   return useMutation(
     (data: CompleteChapterInput) => courseService.completeChapter(data),
     {
-      onSuccess: (data, variables) => {
+      onSuccess: (_, variables) => {
         queryClient.invalidateQueries(["userProgress", variables.userId]);
       },
     }

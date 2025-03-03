@@ -61,6 +61,9 @@ export interface Course {
 export interface Goal {
   id: string;
   name: string;
+  board: string;
+  grade: string;
+  description?: string;
   createdAt: string;
   updatedAt: string;
   courses?: Course[];

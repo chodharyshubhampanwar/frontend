@@ -1,5 +1,5 @@
 // ChapterDetail.tsx
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useChapter } from "../hooks/useChapter";
 import { TopicItem } from "./TopicItem";
@@ -41,7 +41,13 @@ const ChapterDetail: React.FC = () => {
   };
 
   const handleChapterComplete = () => {
-    completeChapter({ userId, chapterId: chapter.id });
+    completeChapter({
+      userId,
+      chapterId: chapter.id,
+      topicId: currentTopic.id, // Add current topic ID
+      completed: true, // Set completion status
+      progress: 100, // Set full progress
+    });
   };
 
   return (
