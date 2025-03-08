@@ -5,13 +5,15 @@ import { useChapter } from "../hooks/useChapter";
 import { TopicItem } from "./TopicItem";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useCompleteChapter } from "@/hooks/useCompleteChapter";
+import { useAuthStore } from "@/store/AuthStore";
 
 const ChapterDetail: React.FC = () => {
   const { chapterId } = useParams<{ chapterId: string }>();
   const { chapter, isLoading } = useChapter(chapterId);
   const [currentTopicIndex, setCurrentTopicIndex] = useState(0);
 
-  const userId = "c22bae68-ff0d-4d3c-af78-c6d4fb10a920";
+  const currentUser = useAuthStore((state) => state.user?.id);
+  const userId = currentUser || "";
 
   const { mutate: completeChapter, isLoading: isCompleting } =
     useCompleteChapter();

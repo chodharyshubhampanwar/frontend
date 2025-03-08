@@ -29,21 +29,13 @@ import { Button } from "@/components/ui/button";
 import { AlertCircle, Edit2, Trash2 } from "lucide-react";
 import { Goal } from "../types/course";
 import { useAuthStore } from "@/store/AuthStore";
-import { useUser } from "../hooks/useUser";
 import LoadingSpinner from "@/components/LoadingSpinner";
 
 const GoalsList = () => {
   const navigate = useNavigate();
   const { goals, isLoading: goalsLoading } = useGoals();
-  const { user, loading: authLoading } = useAuthStore();
-  const firebaseUid = user?.uid;
-
-  const {
-    supabaseUserId,
-    isLoading: userLoading,
-    error: userError,
-    isError: userIsError,
-  } = useUser(firebaseUid);
+  const currentUser = useAuthStore((state) => state.user?.id);
+  const userId = currentUser || "";
 
   const {
     userGoals,
@@ -52,7 +44,7 @@ const GoalsList = () => {
     removeGoalMutation,
     userGoalsError,
     userGoalsIsError,
-  } = useUserGoals(supabaseUserId || "");
+  } = useUserGoals(userId || "");
 
   const [selectedGrade, setSelectedGrade] = useState("");
   const [selectedBoard, setSelectedBoard] = useState("");
@@ -63,20 +55,8 @@ const GoalsList = () => {
   }>(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-  if (authLoading || userLoading) {
+  if (!userId) {
     return <LoadingSpinner />;
-  }
-
-  if (!firebaseUid) {
-    return <div>Please sign in.</div>;
-  }
-
-  if (userIsError) {
-    return <div>Error loading user data: {userError?.message}</div>;
-  }
-
-  if (!supabaseUserId) {
-    return <div>Loading user data...</div>;
   }
 
   if (userGoalsIsError) {
@@ -104,7 +84,7 @@ const GoalsList = () => {
       );
       if (!alreadyAssigned) {
         assignGoalMutation.mutate({
-          supabaseUserId: supabaseUserId, // use supabaseUserId
+          supabaseUserId: userId, // use supabaseUserId
           goalId: selectedGoal.id,
         });
       }

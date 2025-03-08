@@ -31,10 +31,10 @@ export const useAuthStore = create<AuthState>()(
       loading: false,
       error: null,
       isAuthenticated: false,
+       supabaseUserId: null,
       setUser: (user) => set({ user, isAuthenticated: !!user }),
       setLoading: (loading) => set({ loading }),
       setError: (error) => set({ error }),
-
       signInWithGoogle: async (onSuccess) => {
         const { setLoading, setUser, setError } = get();
         if (get().loading) return;
@@ -64,7 +64,6 @@ export const useAuthStore = create<AuthState>()(
 
           try {
             const newUser = await userService.createUser(userData);
-            console.log(newUser,"newUser");
             setUser(newUser);
             toast.success("Successfully signed in");
             onSuccess?.();
@@ -72,7 +71,7 @@ export const useAuthStore = create<AuthState>()(
             const err = error as ApiErrorResponse;
             if (err.response?.status === 409) {
               const existingUser = await userService.getUser(firebaseUser.uid);
-        setUser(existingUser);
+              setUser(existingUser);
               toast.success("Successfully signed in");
               onSuccess?.();
             } else {
