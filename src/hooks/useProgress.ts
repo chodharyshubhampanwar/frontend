@@ -103,9 +103,6 @@ export const useUpdateTopicProgress = () => {
   );
 };
 
-/**
- * Returns simple boolean + numeric progress for a single topic
- */
 export const useTopicProgress = (userId: string, topicId: string) => {
   const { data } = useUserProgress(userId);
   const progressData = data?.topicProgress.find((p) => p.topicId === topicId);

@@ -31,16 +31,13 @@ export const useAuthStore = create<AuthState>()(
       loading: false,
       error: null,
       isAuthenticated: false,
-
       setUser: (user) => set({ user, isAuthenticated: !!user }),
       setLoading: (loading) => set({ loading }),
       setError: (error) => set({ error }),
 
       signInWithGoogle: async (onSuccess) => {
         const { setLoading, setUser, setError } = get();
-
         if (get().loading) return;
-
         setLoading(true);
         setError(null);
 
@@ -48,7 +45,6 @@ export const useAuthStore = create<AuthState>()(
           const provider = new GoogleAuthProvider();
           provider.setCustomParameters({ prompt: "select_account" });
           const result = await signInWithPopup(auth, provider);
-          console.log(result);
           const firebaseUser = result.user;
 
           if (!firebaseUser.email) {
@@ -62,20 +58,21 @@ export const useAuthStore = create<AuthState>()(
             username:
               firebaseUser.displayName?.toLowerCase().replace(/\s+/g, "_") ||
               `user_${Date.now()}`,
-            createdAt: new Date().toISOString(),
             avatar: firebaseUser.photoURL || "",
             fullName: firebaseUser.displayName || "",
           };
 
           try {
             const newUser = await userService.createUser(userData);
+            console.log(newUser,"newUser");
             setUser(newUser);
             toast.success("Successfully signed in");
             onSuccess?.();
           } catch (error: unknown) {
             const err = error as ApiErrorResponse;
             if (err.response?.status === 409) {
-              setUser({ ...userData });
+              const existingUser = await userService.getUser(firebaseUser.uid);
+        setUser(existingUser);
               toast.success("Successfully signed in");
               onSuccess?.();
             } else {

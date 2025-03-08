@@ -42,16 +42,6 @@ class CourseService {
     return api.get<Chapter>(`/chapter/${chapterId}`).then((res) => res.data);
   }
 
-  //  async updateTopicProgress(data: UpdateTopicProgressInput) {
-  //   const res = await api.patch("/progress", data);
-  //   return res.data;
-  // }
-
-  // async getUserProgress(userId: string): Promise<UserProgressResponse> {
-  //   const res = await api.get(`/progress/${userId}`);
-  //   return res.data;
-  // }
-
   async updateTopicProgress(data: TopicProgressInput): Promise<TopicProgress> {
     const response = await api.patch<TopicProgress>('/progress', data);
     return response.data;

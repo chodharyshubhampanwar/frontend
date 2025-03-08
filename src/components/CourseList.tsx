@@ -116,13 +116,14 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useCourses } from "../hooks/useCourses";
-import { Calculator, BookOpen, GraduationCap } from "lucide-react";
+import { Calculator, BookOpen, GraduationCap, Microscope } from "lucide-react";
 
 const getSubjectIcon = (subjectName: string) => {
   const name = subjectName.toLowerCase();
   if (name.includes("math"))
     return <Calculator className="w-5 h-5 text-blue-600" />;
   return <BookOpen className="w-5 h-5 text-green-600" />;
+  return <Microscope className="w-5 h-5 text-purple-600" />;
 };
 
 const CoursesList: React.FC = () => {
@@ -140,7 +141,7 @@ const CoursesList: React.FC = () => {
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
         <GraduationCap className="w-6 h-6" />
-        Courses for Goal: {goalId}
+        Start Learning
       </h2>
       <div className="space-y-4">
         {courses.map((course) => (

@@ -54,7 +54,7 @@ const ChapterDetail: React.FC = () => {
     <div className="flex flex-col md:flex-row p-4 max-w-6xl mx-auto">
       {/* Left sidebar for desktop */}
       <aside className="hidden md:block md:w-1/4 p-4 border-r">
-        <h2 className="text-xl font-bold mb-4">Lesson: {chapter.name}</h2>
+        <h2 className="text-xl font-bold mb-4">{chapter.name}</h2>
         <ul>
           {topics.map((topic, index) => (
             <li
@@ -76,7 +76,7 @@ const ChapterDetail: React.FC = () => {
       <main className="md:w-3/4 p-4">
         {/* For mobile, show the lesson heading at the top */}
         <div className="block md:hidden mb-4">
-          <h2 className="text-xl font-bold">Lesson: {chapter.name}</h2>
+          <h2 className="text-xl font-bold">{chapter.name}</h2>
         </div>
         {currentTopic ? (
           <div>

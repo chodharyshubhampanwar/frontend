@@ -3,9 +3,9 @@ export interface User {
   email: string;
   name: string | null;
   username: string | null;
-  createdAt: string;
   avatar: string;
   fullName: string;
+  id?: string;
 }
 
 export interface AuthState {

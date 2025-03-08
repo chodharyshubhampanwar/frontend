@@ -3,7 +3,7 @@ import Landing from "./pages/Landing";
 import QuizPage from "./pages/Quiz";
 import DeckPage from "./pages/DeckPage";
 import Flashcard from "./components/Flashcard";
-import Dashboard from "@/pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import ErrorPage from "./pages/Error";
 import TestSummary from "./pages/TestSummary";
 import TestsList from "./pages/TestList";
@@ -27,13 +27,34 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: "decks",
-        element: <DeckPage />,
-      },
-      {
         path: "goals",
         element: <GoalsList />,
         errorElement: <ErrorPage />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "deck",
+        element: <DeckPage />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "home",
+        element: <GoalsList />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "test",
+        element: <TestsList />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "question",
+        element: <QuestionsList />,
       },
       {
         path: "courses/:goalId",
@@ -49,28 +70,6 @@ const router = createBrowserRouter([
         path: "chapter/:chapterId",
         element: <ChapterDetail />,
         errorElement: <ErrorPage />,
-      },
-    ],
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/",
-    element: <Dashboard />,
-    children: [
-      {
-        path: "deck",
-        element: <DeckPage />,
-
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "test",
-        element: <TestsList />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "question",
-        element: <QuestionsList />,
       },
       {
         path: "quiz/:quizId",

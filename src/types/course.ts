@@ -93,10 +93,13 @@ export interface UserProgressResponse {
   unitProgress: UnitProgress[];
 }
 
-// types/course.ts
-
 export interface Topic {
   id: string;
+  description: string;
+  duration: number;
+  tags: string[];
+  title: string;
+  videoUrl: string;
   name: string;
   chapterId: string;
   youtubeUrl?: string;
@@ -123,7 +126,7 @@ export interface Subject {
   units?: Unit[];
 }
 
-// User progress types
+
 export interface TopicProgress {
   id: string;
   userId: string;
@@ -144,4 +147,11 @@ export interface TopicProgressInput {
   topicId: string;
   completed: boolean;
   progress: number;
+}
+
+export interface UserGoal {
+  id: string; // userGoal Id
+    userId: string;
+    goalId: string;
+    goal: Goal;
 }

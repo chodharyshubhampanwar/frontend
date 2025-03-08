@@ -16,29 +16,18 @@ class UserService {
     return UserService.instance;
   }
 
-  async getUser(userId: string): Promise<User> {
-    // Check cache first
-    const cachedPromise = this.cache.get(userId);
-    if (cachedPromise) {
-      return cachedPromise;
-    }
+async getUser(uid: string): Promise<User> {
+  const response = await api.get<User>(`/user/${uid}`);
+  return response.data;
+}
 
-    const promise = api.get<User>(`/user/${userId}`)
-      .then(response => response.data)
-      .finally(() => {
-        // Clear cache after request completes
-        this.cache.delete(userId);
-      });
-
-    // Store promise in cache
-    this.cache.set(userId, promise);
-    return promise;
-  }
 
   async createUser(userData: Omit<User, "id">): Promise<User> {
     const response = await api.post<User>("/user", userData);
     return response.data;
   }
+
+
 
   async updateUser(userId: string, userData: Partial<User>): Promise<User> {
     const response = await api.patch<User>(`/user/${userId}`, userData);

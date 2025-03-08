@@ -57,7 +57,7 @@ const DeckList = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen bg-gray-50">
         <LoadingSpinner />
       </div>
     );
@@ -65,7 +65,7 @@ const DeckList = () => {
 
   if (error) {
     return (
-      <div className="max-w-7xl mx-auto px-2 sm:px-4">
+      <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="text-red-500 text-center">
           Error loading decks:{" "}
           {error instanceof Error ? error.message : "Unknown error"}
@@ -104,132 +104,140 @@ const DeckList = () => {
             setSelectedGrade("all");
             setSelectedBoard("all");
           }}
-          className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg border border-gray-400 transition-colors flex items-center gap-2"
+          className="flex items-center gap-2 px-4 py-2 text-sm bg-white hover:bg-gray-200 rounded-lg border border-gray-300 transition-colors"
         >
-          <span>Clear All Filters</span>
-          <X className="h-5 w-5" />
+          <span>Clear All</span>
+          <X className="h-4 w-4" />
         </button>
       )}
     </div>
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-2 sm:px-4">
-      {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-semibold mb-2 text-gray-900">
-          Flashcard Decks
-        </h1>
-        <p className="text-gray-600">
-          Browse and study from our collection of flashcard decks
-        </p>
-      </div>
-
-      {/* Desktop Filters */}
-      <div className="hidden md:block mb-6">
-        <div className="flex items-center gap-2 mb-4">
-          <Filter className="h-6 w-6 text-gray-600" />
-          <h2 className="text-xl font-semibold">Filters</h2>
+    <div className="min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-4 py-10">
+        {/* Page Header */}
+        <div className="mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+            Flashcard Decks
+          </h1>
+          <p className="text-gray-600">
+            Browse and study from our collection of flashcard decks.
+          </p>
         </div>
-        <FilterContent />
-      </div>
 
-      {/* Mobile Filter Button */}
-      <div className="md:hidden mb-6">
-        <button
-          onClick={() => setShowFilterModal(true)}
-          className="w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg border-2 border-gray-300 transition-colors flex items-center gap-2 justify-center"
-        >
-          <Filter className="h-6 w-6 text-gray-600" />
-          <span>Filters</span>
-        </button>
-      </div>
-
-      {/* Mobile Filter Modal */}
-      {showFilterModal && (
-        <div className="fixed inset-0 z-50">
-          <div
-            className="absolute inset-0 bg-black opacity-50"
-            onClick={() => setShowFilterModal(false)}
-          ></div>
-          <div className="absolute top-0 left-0 w-full h-full bg-white transform transition-transform duration-300">
-            <div className="p-4">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-semibold">Filter Options</h2>
-                <button
-                  onClick={() => setShowFilterModal(false)}
-                  className="text-xl font-bold"
-                >
-                  &times;
-                </button>
-              </div>
-              <FilterContent />
-              <div className="mt-4">
-                <button
-                  onClick={() => setShowFilterModal(false)}
-                  className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
-                >
-                  Apply Filters
-                </button>
-              </div>
-            </div>
+        {/* Desktop Filters */}
+        <div className="hidden md:block mb-8">
+          <div className="flex items-center gap-2 mb-4">
+            <Filter className="h-6 w-6 text-gray-600" />
+            <h2 className="text-xl font-semibold text-gray-800">Filters</h2>
+          </div>
+          <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+            <FilterContent />
           </div>
         </div>
-      )}
 
-      {/* Deck Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {filteredDecks.map((deck) => (
-          <div
-            key={deck.id}
-            onClick={() => navigate(`/deck/${deck.id}`)}
-            className="bg-white rounded-lg hover:shadow transition-shadow cursor-pointer p-4 border-2 border-gray-300"
+        {/* Mobile Filter Button */}
+        <div className="md:hidden mb-6">
+          <button
+            onClick={() => setShowFilterModal(true)}
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-white rounded-lg border border-gray-200 shadow-sm text-gray-700 hover:bg-gray-100 transition-colors"
           >
-            <div className="flex items-start justify-between mb-3">
-              <div>
-                <h2 className="text-lg font-semibold mb-1 text-gray-900">
-                  {deck.title}
-                </h2>
-                <p className="text-gray-600 text-sm mb-3">{deck.description}</p>
+            <Filter className="h-5 w-5" />
+            <span>Filters</span>
+          </button>
+        </div>
+
+        {/* Mobile Filter Modal */}
+        {showFilterModal && (
+          <div className="fixed inset-0 z-50">
+            <div
+              className="absolute inset-0 bg-black bg-opacity-50"
+              onClick={() => setShowFilterModal(false)}
+            />
+            <div className="absolute top-0 left-0 w-full h-full bg-white transition-transform">
+              <div className="p-4">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-xl font-semibold text-gray-800">
+                    Filter Options
+                  </h2>
+                  <button
+                    onClick={() => setShowFilterModal(false)}
+                    className="text-xl font-bold text-gray-600"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <FilterContent />
+                <div className="mt-6">
+                  <button
+                    onClick={() => setShowFilterModal(false)}
+                    className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                  >
+                    Apply Filters
+                  </button>
+                </div>
               </div>
-              <TbCardsFilled className="text-blue-600" size={20} />
-            </div>
-            <div className="flex flex-wrap gap-2 mb-3">
-              {deck.subject && (
-                <span className="px-2 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">
-                  {deck.subject}
-                </span>
-              )}
-              {deck.grade && (
-                <span className="px-2 py-1 bg-green-50 text-green-600 rounded-full text-xs">
-                  {deck.grade}
-                </span>
-              )}
-              {deck.board && (
-                <span className="px-2 py-1 bg-purple-50 text-purple-600 rounded-full text-xs">
-                  {deck.board}
-                </span>
-              )}
-            </div>
-            <div className="flex justify-between items-center text-xs text-gray-500">
-              <span>{deck.cards.length} cards</span>
-              <span>
-                Updated {new Date(deck.updatedAt).toLocaleDateString()}
-              </span>
             </div>
           </div>
-        ))}
-      </div>
+        )}
 
-      {/* Empty State */}
-      {filteredDecks.length === 0 && (
-        <div className="text-center py-8">
-          <h3 className="text-lg text-gray-600">
-            No decks found matching your criteria
-          </h3>
-          <p className="text-gray-500 mt-1">Try adjusting your filters.</p>
+        {/* Deck Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {filteredDecks.map((deck) => (
+            <div
+              key={deck.id}
+              onClick={() => navigate(`/deck/${deck.id}`)}
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer p-5 border border-gray-200"
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-800 mb-1">
+                    {deck.title}
+                  </h2>
+                  <p className="text-sm text-gray-600">{deck.description}</p>
+                </div>
+                <TbCardsFilled className="text-blue-600" size={20} />
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {deck.subject && (
+                  <span className="inline-block px-2 py-1 bg-blue-100 text-blue-600 text-xs font-semibold rounded-full">
+                    {deck.subject}
+                  </span>
+                )}
+                {deck.grade && (
+                  <span className="inline-block px-2 py-1 bg-green-100 text-green-600 text-xs font-semibold rounded-full">
+                    {deck.grade}
+                  </span>
+                )}
+                {deck.board && (
+                  <span className="inline-block px-2 py-1 bg-purple-100 text-purple-600 text-xs font-semibold rounded-full">
+                    {deck.board}
+                  </span>
+                )}
+              </div>
+
+              {/* Deck Meta */}
+              <div className="flex justify-between items-center text-xs text-gray-500">
+                <span>{deck.cards.length} cards</span>
+                <span>
+                  Updated {new Date(deck.updatedAt).toLocaleDateString()}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
-      )}
+
+        {/* Empty State */}
+        {filteredDecks.length === 0 && (
+          <div className="text-center py-10 text-gray-500">
+            <h3 className="text-lg">No decks found matching your criteria</h3>
+            <p className="mt-1">Try adjusting your filters.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
