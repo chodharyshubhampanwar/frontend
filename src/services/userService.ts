@@ -3,10 +3,9 @@ import { User } from "../types/auth";
 
 class UserService {
   private static instance: UserService;
-  private cache: Map<string, Promise<User>>;
 
   private constructor() {
-    this.cache = new Map();
+
   }
 
   static getInstance(): UserService {

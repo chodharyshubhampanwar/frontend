@@ -18,7 +18,7 @@ export const useGoalStore = create<GoalStore>((set) => ({
     set((state) => ({ userGoals: [...state.userGoals, userGoal] })),
   removeUserGoal: (userGoalId: string) =>
     set((state) => ({
-      userGoals: state.userGoals.filter((ug) => ug.userGoalId !== userGoalId),
+      userGoals: state.userGoals.filter((ug) => ug.id !== userGoalId),
     })),
   setSelectedGoal: (goal: Goal | null) => set({ selectedGoal: goal }),
 }));
